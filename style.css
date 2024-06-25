@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   text-align: center;
+   transform: translate(-50%, -50%);
+}
+.notify{
+    position: relative;
+}
+.container .notify::before{
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    background: linear-gradient(#ff1a1a, #ff0000, #e60000);
+    content: attr(data-count);
+    /* content: "1"; */
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100%;
+    top: 0;
+    padding: 5px 12px;
+    position: absolute;
+    right: -3px;
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+    animation:  animate .9s ease-out infinite alternate;
+}
+@keyframes noti {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.09);
+    }
+}
+.facebook{
+    color: blue;
+    font-size: 80px;
+}
+.btn_notify{
+    border-radius: 5px;
+    background: rgb(48, 48, 187);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    height: 40px;
+    left: -25px;
+    outline: none;
+    padding: 7px 12px;
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    transition: all .4s;
+    width: 120px;
+}
+.notify.add-numb::before{
+    opacity: 1;
+}
+.btn_notify:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
